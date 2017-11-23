@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,30 +8,26 @@
     tools:context=".MainActivity">
 
 
-
-
     <RelativeLayout
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="64dp">
-
     </RelativeLayout>
 
-    <FrameLayout
+
+    <include
+        layout="@layout/activity_tab"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-
-    </FrameLayout>
-
+        android:layout_height="match_parent" />
     <com.mancj.materialsearchbar.MaterialSearchBar
         style="@style/MaterialSearchBarLight"
         android:id="@+id/searchBar"
         app:mt_navIconEnabled="true"
         app:mt_placeholder="Warm Heart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp"
         />
 
-</android.support.design.widget.CoordinatorLayout>
+
+</RelativeLayout>

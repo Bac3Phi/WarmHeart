@@ -7,22 +7,22 @@
         android:id="@+id/gr_main">
         <item
             android:id="@+id/nav_community"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@mipmap/ic_love_48px"
             android:title="Cộng Đồng" />
         <item
             android:id="@+id/nav_ranking"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@mipmap/ic_rating_48px"
             android:title="Xếp Hạng" />
     </group>
     <group android:checkableBehavior="single"
         android:id="@+id/gr_sub2">
         <item
             android:id="@+id/nav_news"
-            android:icon="@drawable/ic_menu_share"
+            android:icon="@mipmap/ic_news_48px"
             android:title="Tin Tức" />
         <item
             android:id="@+id/nav_donate"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@mipmap/ic_donate_48px"
             android:title="Đóng Gớp Trực Tuyến" />
     </group>
 
@@ -30,11 +30,11 @@
         android:id="@+id/gr_sub3">
         <item
             android:id="@+id/nav_account"
-            android:icon="@drawable/ic_menu_share"
+            android:icon="@mipmap/ic_user_52px"
             android:title="Tài Khoản" />
         <item
             android:id="@+id/nav_setting"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@mipmap/ic_setting"
             android:title="Thiết Lập" />
     </group>
     <group android:checkableBehavior="single"
