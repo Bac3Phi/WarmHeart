@@ -3,6 +3,7 @@ package warmheart.penguin.dev.warmheart;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,9 +17,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
+import warmheart.penguin.dev.warmheart.Fragment.Tab1Fragment;
 import warmheart.penguin.dev.warmheart.Fragment.TabActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity
     MaterialSearchBar searchBar;
     private DrawerLayout drawer;
     private ViewPager mViewPager;
+    TabLayout tabLayout;
     private TabActivity.SectionsPagerAdapter mSectionsPagerAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +43,7 @@ public class MainActivity extends AppCompatActivity
         mSectionsPagerAdapter = new TabActivity.SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
@@ -117,13 +121,16 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_community) {
-            // Handle the camera action
+            TabLayout.Tab tab = tabLayout.getTabAt(0);
+            tab.select();
+
         } else if (id == R.id.nav_ranking) {
-
+            TabLayout.Tab tab = tabLayout.getTabAt(1);
+            tab.select();
         } else if (id == R.id.nav_news) {
-
+            Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_donate) {
-
+            
         } else if (id == R.id.nav_account) {
 
         } else if (id == R.id.nav_setting) {
