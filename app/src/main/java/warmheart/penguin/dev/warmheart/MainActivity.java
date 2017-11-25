@@ -25,6 +25,7 @@ import com.mancj.materialsearchbar.MaterialSearchBar;
 import de.hdodenhof.circleimageview.CircleImageView;
 import warmheart.penguin.dev.warmheart.Fragment.Tab1Fragment;
 import warmheart.penguin.dev.warmheart.Fragment.TabActivity;
+import warmheart.penguin.dev.warmheart.Login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,MaterialSearchBar.OnSearchActionListener {
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity
     private DrawerLayout drawer;
     private ViewPager mViewPager;
     TextView txtName_main, txtEmail_main;
+    String urlprofile;
     CircleImageView profile_image;
     TabLayout tabLayout;
     private TabActivity.SectionsPagerAdapter mSectionsPagerAdapter;
@@ -46,10 +48,22 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         AnhXa();
 
-
+        Intent intent = getIntent();
+        if(intent!=null) {
+            Bundle bundle = intent.getBundleExtra(LoginActivity.BUNDLE);
+            if (bundle != null) {
+                txtName_main.setText(bundle.getString(LoginActivity.AccName));
+                txtEmail_main.setText(bundle.getString(LoginActivity.AccEmail));
+                urlprofile = (bundle.getString(LoginActivity.Url_profile));
+            }
+//            else
+//            {
+//                txtName_main.setText(intent.getStringExtra(LoginActivity.AccName));
+//                txtEmail_main.setText(intent.getStringExtra(LoginActivity.AccEmail));
+//            }
+        }
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -96,6 +110,8 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -145,7 +161,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_news) {
             Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_donate) {
-            
+
         } else if (id == R.id.nav_account) {
 
         } else if (id == R.id.nav_setting) {
@@ -184,3 +200,4 @@ public class MainActivity extends AppCompatActivity
         }
     }
 }
+
