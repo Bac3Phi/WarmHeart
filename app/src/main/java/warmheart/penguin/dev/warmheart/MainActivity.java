@@ -17,10 +17,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import warmheart.penguin.dev.warmheart.Fragment.Tab1Fragment;
 import warmheart.penguin.dev.warmheart.Fragment.TabActivity;
 
@@ -29,12 +31,25 @@ public class MainActivity extends AppCompatActivity
     MaterialSearchBar searchBar;
     private DrawerLayout drawer;
     private ViewPager mViewPager;
+    TextView txtName_main, txtEmail_main;
+    CircleImageView profile_image;
     TabLayout tabLayout;
     private TabActivity.SectionsPagerAdapter mSectionsPagerAdapter;
+
+    public void AnhXa(){
+        txtName_main = (TextView) findViewById(R.id.txtName);
+        txtEmail_main = (TextView) findViewById(R.id.txtEmail);
+        profile_image = (CircleImageView) findViewById(R.id.profile_image);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        AnhXa();
+
+
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
