@@ -35,20 +35,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public static final String BUNDLE = "bundle";
     GoogleSignInClient mGoogleSignInClient;
 
-    String profile_url;
-    ImageView imgAva;
-    TextView txtName;
-    CircleImageView profile_image_login;
     int RC_SIGN_IN = 001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //txtMail = (TextView) findViewById(R.id.Email);
-         txtName = (TextView) findViewById(R.id.txtHoTen);
-        //imgAva = (ImageView) findViewById(R.id.imgAva);
-        //profile_image_login = (CircleImageView) findViewById(R.id.profile_image);
+
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -56,7 +49,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         // Build a GoogleSignInClient with the options specified by gso.
 
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+       // GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         // Set the dimensions of the sign-in button.
         SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
@@ -92,9 +85,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {
             getname = acct.getDisplayName();
-            //String personGivenName = acct.getGivenName();
-            //String personFamilyName = acct.getFamilyName();
-           getmail = acct.getEmail();
+            getmail = acct.getEmail();
             geturl =acct.getPhotoUrl().toString();
 
         }
@@ -113,9 +104,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             bundle.putString("AccName",getname);
             bundle.putString("AccMail",getmail);
             bundle.putString("AccUrl",geturl);
-            Intent inten = new Intent(LoginActivity.this, MainActivity.class);
-            inten.putExtra("ACC",bundle);
-            startActivity(inten);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.putExtra("ACC",bundle);
+            startActivity(intent);
+
         }
     }
 
@@ -125,7 +117,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()){
 
             case R.id.sign_in_button:
+
                 signIn();
+
                 //Toast.makeText(this, txtName.getText(), Toast.LENGTH_SHORT).show();
                 break;
 

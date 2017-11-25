@@ -49,14 +49,9 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AnhXa();
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra("ACC");
 
-        txtName_main.setText(bundle.getString("AccName"));
-        txtEmail_main.setText(bundle.getString("AccMail"));
-        Picasso.with(this).load(bundle.getString("AccUrl")).resize(300,300).centerCrop().into(profile_image);
+
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -68,6 +63,16 @@ public class MainActivity extends AppCompatActivity
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
+        View header=navigationView.getHeaderView(0);
+        txtEmail_main =(TextView)header.findViewById(R.id.txtEmail);
+        txtName_main = (TextView)header.findViewById(R.id.txtName) ;
+        profile_image =(CircleImageView)header.findViewById(R.id.profile_image) ;
+        Intent intent = getIntent();
+        Bundle bundle = intent.getBundleExtra("ACC");
+        txtName_main.setText(bundle.getString("AccName"));
+        txtEmail_main.setText(bundle.getString("AccMail"));
+        Picasso.with(this).load(bundle.getString("AccUrl")).resize(300,300).centerCrop().into(profile_image);
 
         Button btnTest = (Button)findViewById(R.id.button2);
         btnTest.setOnClickListener(new View.OnClickListener() {
