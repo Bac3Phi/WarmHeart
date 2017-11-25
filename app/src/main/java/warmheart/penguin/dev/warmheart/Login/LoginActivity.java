@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             // Picasso.with(this).load(account.getPhotoUrl()).into(imgAva);
         } catch (ApiException e) {
-            Toast.makeText(getBaseContext(),"" + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(),"Fail", Toast.LENGTH_LONG).show();
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information
         }

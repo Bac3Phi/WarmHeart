@@ -7,9 +7,11 @@
         android:id="@+id/txtWelcome"
         android:text="Welcome"
         android:textSize="30dp"
+        android:textColor="#ec5b2f"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"/>
 
     <TextView
         android:id="@+id/txtHoTen"
@@ -18,15 +20,17 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/txtWelcome"
         android:text="To"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:textColor="#ec5b2f"/>
 
     <TextView
         android:id="@+id/Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtHoTen"
-        android:text="Peguin The Joker"
+        android:text="Penguin The Joker"
         android:textSize="30dp"
+        android:textColor="#ec5b2f"
         android:layout_centerHorizontal="true"
         />
 
@@ -36,12 +40,15 @@
         android:layout_height="250dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/Email"
+        android:src="@mipmap/logomain"
+        android:layout_margin="10dp"
         />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_below="@+id/imgAva"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"/>
 
 </RelativeLayout>
