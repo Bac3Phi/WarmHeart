@@ -34,10 +34,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public static final String Url_profile = "url";
     public static final String BUNDLE = "bundle";
     GoogleSignInClient mGoogleSignInClient;
-    TextView txtMail, txtName;
+
     String profile_url;
     ImageView imgAva;
-    Button btnSignout;
+    TextView txtName;
     CircleImageView profile_image_login;
     int RC_SIGN_IN = 001;
 
@@ -45,10 +45,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        txtMail = (TextView) findViewById(R.id.txtEmail);
-        txtName = (TextView) findViewById(R.id.txtHoTen);
-        imgAva = (ImageView) findViewById(R.id.imgAva);
-        profile_image_login = (CircleImageView) findViewById(R.id.profile_image);
+        //txtMail = (TextView) findViewById(R.id.Email);
+         txtName = (TextView) findViewById(R.id.txtHoTen);
+        //imgAva = (ImageView) findViewById(R.id.imgAva);
+        //profile_image_login = (CircleImageView) findViewById(R.id.profile_image);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -62,34 +62,41 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
         findViewById(R.id.sign_in_button).setOnClickListener(this);
-       // findViewById(R.id.btnSignout).setOnClickListener(this);
+
+
     }
 
-    public void AccInfo(){
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putString(AccName, txtName.getText().toString());
-        bundle.putString(AccEmail, txtMail.getText().toString());
-        bundle.putString(Url_profile, profile_url);
-        intent.putExtra(BUNDLE,bundle);
-        startActivity(intent);
-    }
+
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-
+   public String getname,getmail,geturl;
+    Bundle bundle = new Bundle();
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
+        /*try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            txtMail.setText(account.getEmail().toString());
+
+//            txtMail.setText(account.getEmail().toString());
             txtName.setText(account.getDisplayName().toString());
-            Picasso.with(this).load(account.getPhotoUrl()).into(imgAva);
-            Toast.makeText(this, "a", Toast.LENGTH_SHORT).show();
+            getname = account.getDisplayName().toString();
+            getmail = account.getEmail().toString();
+            geturl = account.getPhotoUrl().toString();
+
+            // Picasso.with(this).load(account.getPhotoUrl()).into(imgAva);
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information
+        }*/
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if (acct != null) {
+            getname = acct.getDisplayName();
+            //String personGivenName = acct.getGivenName();
+            //String personFamilyName = acct.getFamilyName();
+           getmail = acct.getEmail();
+            geturl =acct.getPhotoUrl().toString();
+
         }
     }
 
@@ -103,7 +110,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             // a listener.
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
+            bundle.putString("AccName",getname);
+            bundle.putString("AccMail",getmail);
+            bundle.putString("AccUrl",geturl);
             Intent inten = new Intent(LoginActivity.this, MainActivity.class);
+            inten.putExtra("ACC",bundle);
             startActivity(inten);
         }
     }
@@ -115,10 +126,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.sign_in_button:
                 signIn();
+                //Toast.makeText(this, txtName.getText(), Toast.LENGTH_SHORT).show();
                 break;
-          //  case R.id.btnSignout:
-           //     signOut();
-            //    break;
+
         }
     }
 }

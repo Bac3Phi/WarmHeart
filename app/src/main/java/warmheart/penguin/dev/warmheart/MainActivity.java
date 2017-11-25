@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mancj.materialsearchbar.MaterialSearchBar;
+import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import warmheart.penguin.dev.warmheart.Fragment.Tab1Fragment;
@@ -51,19 +52,11 @@ public class MainActivity extends AppCompatActivity
         AnhXa();
 
         Intent intent = getIntent();
-        if(intent!=null) {
-            Bundle bundle = intent.getBundleExtra(LoginActivity.BUNDLE);
-            if (bundle != null) {
-                txtName_main.setText(bundle.getString(LoginActivity.AccName));
-                txtEmail_main.setText(bundle.getString(LoginActivity.AccEmail));
-                urlprofile = (bundle.getString(LoginActivity.Url_profile));
-            }
-//            else
-//            {
-//                txtName_main.setText(intent.getStringExtra(LoginActivity.AccName));
-//                txtEmail_main.setText(intent.getStringExtra(LoginActivity.AccEmail));
-//            }
-        }
+        Bundle bundle = intent.getBundleExtra("ACC");
+
+        txtName_main.setText(bundle.getString("AccName"));
+        txtEmail_main.setText(bundle.getString("AccMail"));
+        Picasso.with(this).load(bundle.getString("AccUrl")).resize(300,300).centerCrop().into(profile_image);
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);

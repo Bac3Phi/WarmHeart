@@ -20,7 +20,7 @@
           "client_id": "765116869035-1nqvghb04spj300uqf0ga8q00mt0146h.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "warmheart.penguin.dev.warmheart",
+            "package_name": "warmheart.penguin.dev.warmheart.Login",
             "certificate_hash": "ce671a92c95cd056c8acab98e6f1046ebb7527ab"
           }
         }
