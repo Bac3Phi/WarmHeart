@@ -159,8 +159,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_news) {
             Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_donate) {
-
-
+            Intent intent = new Intent(MainActivity.this, DonateActivity.class);
+            startActivity(intent);
         }else  if(id ==R.id.nav_account){
             Intent intent = new Intent(MainActivity.this,AccountActivity.class);
             startActivity(intent);
@@ -170,6 +170,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_help) {
 
         } else if (id == R.id.nav_aboutus) {
+            //Intent intent = new Intent(MainActivity.this, InfoActivity.class);
+           // startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
