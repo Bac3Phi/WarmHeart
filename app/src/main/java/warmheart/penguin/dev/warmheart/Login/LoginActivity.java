@@ -86,8 +86,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (acct != null) {
             getname = acct.getDisplayName();
             getmail = acct.getEmail();
-            geturl =acct.getPhotoUrl().toString();
-
+            geturl = acct.getPhotoUrl().toString();
         }
     }
 
