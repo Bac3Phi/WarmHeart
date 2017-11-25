@@ -56,9 +56,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -75,6 +72,7 @@ public class MainActivity extends AppCompatActivity
         txtName_main = (TextView)header.findViewById(R.id.txtName) ;
         profile_image =(CircleImageView)header.findViewById(R.id.profile_image) ;
         Intent intent = getIntent();
+////set hình lên nani
         Bundle bundle = intent.getBundleExtra("ACC");
         txtName_main.setText(bundle.getString("AccName"));
         txtEmail_main.setText(bundle.getString("AccMail"));
@@ -111,11 +109,7 @@ public class MainActivity extends AppCompatActivity
             }
 
         });
-
-
     }
-
-
 
     @Override
     public void onBackPressed() {
@@ -166,22 +160,7 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_donate) {
 
-        } else if (id == R.id.nav_account) {
-            /*GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestEmail()
-                    .build();
-            GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-            mGoogleSignInClient.signOut()
-                    .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(MainActivity.this, "Sign out", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                            startActivity(intent);
-                        }
 
-
-                    });*/
         }else  if(id ==R.id.nav_account){
             Intent intent = new Intent(MainActivity.this,AccountActivity.class);
             startActivity(intent);

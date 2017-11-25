@@ -130,6 +130,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
                     }
 
                     intent.putExtra("item",bundle);
+
                     mContext.startActivity(intent);
                     //Toast.makeText(v.getContext(), tvTitle.getText(), Toast.LENGTH_SHORT).show();
 

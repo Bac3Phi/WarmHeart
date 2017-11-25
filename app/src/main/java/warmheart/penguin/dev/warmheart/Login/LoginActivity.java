@@ -33,9 +33,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public static final String AccEmail = "email";
     public static final String Url_profile = "url";
     public static final String BUNDLE = "bundle";
-    GoogleSignInClient mGoogleSignInClient;
+    private GoogleSignInClient mGoogleSignInClient;
+    private SignInButton signInButton;
 
-    int RC_SIGN_IN = 001;
+    private int RC_SIGN_IN = 001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +53,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
        // GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         // Set the dimensions of the sign-in button.
-        SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        signInButton = (SignInButton) findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
-        findViewById(R.id.sign_in_button).setOnClickListener(this);
+        signInButton.setOnClickListener(this);
 
 
     }
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if (acct != null) {
+            getname = acct.getDisplayName();
+            getmail = acct.getEmail();
+            geturl = acct.getPhotoUrl().toString();
+            bundle.putString("AccName",getname);
+            bundle.putString("AccMail",getmail);
+            bundle.putString("AccUrl",geturl);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.putExtra("ACC",bundle);
+            startActivity(intent);
+        }
+    }
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -71,8 +87,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
-//            txtMail.setText(account.getEmail().toString());
-//            txtName.setText(account.getDisplayName().toString());
             getname = account.getDisplayName().toString();
             getmail = account.getEmail().toString();
             geturl = account.getPhotoUrl().toString();
@@ -89,12 +103,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information
         }
-       /* GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-        if (acct != null) {
-            getname = acct.getDisplayName();
-            getmail = acct.getEmail();
-            geturl = acct.getPhotoUrl().toString();
-        }*/
     }
 
     @Override
@@ -117,10 +125,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()){
 
             case R.id.sign_in_button:
-
                 signIn();
-
-                //Toast.makeText(this, txtName.getText(), Toast.LENGTH_SHORT).show();
                 break;
 
         }

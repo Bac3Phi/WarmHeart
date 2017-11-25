@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "765116869035",
-    "project_id": "warmheart-187103"
+    "project_number": "911482485364",
+    "project_id": "firebase-warmheart"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:765116869035:android:b439cb806fca7fe2",
+        "mobilesdk_app_id": "1:911482485364:android:29eda6593d51dfc1",
         "android_client_info": {
           "package_name": "warmheart.penguin.dev.warmheart"
         }
       },
       "oauth_client": [
         {
-          "client_id": "765116869035-jtbfg0mu3jcv1j59bjbponnc505sbtqa.apps.googleusercontent.com",
+          "client_id": "911482485364-ps9mhuivb0l0jkootca6m4lccurnqisl.apps.googleusercontent.com",
           "client_type": 3
         },
         {
-          "client_id": "765116869035-1nqvghb04spj300uqf0ga8q00mt0146h.apps.googleusercontent.com",
+          "client_id": "911482485364-57j6ctavrna8hr5ttlgmn23fn1lhfsgt.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "warmheart.penguin.dev.warmheart.Login",
-            "certificate_hash": "ce671a92c95cd056c8acab98e6f1046ebb7527ab"
+            "package_name": "warmheart.penguin.dev.warmheart",
+            "certificate_hash": "17420ebfc7bb2ec7338add04867bbb9fa8d00c06"
           }
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAZ042vlpbIUby2AHpACSc2n4Op-68kXQo"
+          "current_key": "AIzaSyAEWc4qGhqWVqFsuX0P7HsFyTGeo5HYJ40"
         }
       ],
       "services": {
