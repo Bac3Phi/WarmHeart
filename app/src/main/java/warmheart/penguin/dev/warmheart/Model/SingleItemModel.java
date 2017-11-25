@@ -9,7 +9,8 @@ public class SingleItemModel {
     private String name;
     private String url;
     private String description;
-
+    private String location;
+    private String time;
 
     public SingleItemModel() {
     }
@@ -17,6 +18,15 @@ public class SingleItemModel {
     public SingleItemModel(String name, String url) {
         this.name = name;
         this.url = url;
+
+    }
+    public SingleItemModel(String name,String url,String description, String location,String time)
+    {
+        this.name = name;
+        this.url = url;
+        this.description = description;
+        this.location = location;
+        this.time = time;
     }
 
 
@@ -45,4 +55,19 @@ public class SingleItemModel {
     }
 
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_marginTop="64dp"
+    android:weightSum="2"
+    android:background="@drawable/background_ranking"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginLeft="20dp"
+        android:id="@+id/ivAvatarTab3UserList"
+        android:layout_gravity="center"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:civ_border_color="@color/colorPrimary"
+        android:src="@drawable/avatar_test"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tvUserNameTab3UserList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                tools:text="Nguyễn An Vy" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:src="@mipmap/ic_money"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+                <TextView
+                    android:id="@+id/tvRecentChatTab3UserList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvUserNameTab3UserList"
+                    android:textSize="15dp"
+                    tools:text="100,000,000 vnđ"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
