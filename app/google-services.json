@@ -1,7 +1,9 @@
 {
   "project_info": {
     "project_number": "911482485364",
-    "project_id": "firebase-warmheart"
+    "firebase_url": "https://fir-warmheart.firebaseio.com",
+    "project_id": "firebase-warmheart",
+    "storage_bucket": "firebase-warmheart.appspot.com"
   },
   "client": [
     {
@@ -12,6 +14,18 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "911482485364-n8pt93v79rhqdnbg1lbsofgfqk1clplh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "warmheart.penguin.dev.warmheart",
+            "certificate_hash": "ce671a92c95cd056c8acab98e6f1046ebb7527ab"
+          }
+        },
+        {
+          "client_id": "911482485364-v8et2o0gdr66qchuehdl1d4lhqpdhnt8.apps.googleusercontent.com",
+          "client_type": 3
+        },
         {
           "client_id": "911482485364-ps9mhuivb0l0jkootca6m4lccurnqisl.apps.googleusercontent.com",
           "client_type": 3
@@ -35,11 +49,16 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "911482485364-v8et2o0gdr66qchuehdl1d4lhqpdhnt8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }

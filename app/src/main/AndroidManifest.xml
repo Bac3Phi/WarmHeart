@@ -35,7 +35,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SendMailActivity" />
         <activity android:name=".AccountActivity" />
-        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".InfoActivity"></activity>
     </application>
 
 </manifest>
