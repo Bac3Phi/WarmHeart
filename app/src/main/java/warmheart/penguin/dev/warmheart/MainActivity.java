@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_donate) {
 
         } else if (id == R.id.nav_account) {
-            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            /*GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .requestEmail()
                     .build();
             GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -181,10 +181,13 @@ public class MainActivity extends AppCompatActivity
                         }
 
 
-                    });
-
+                    });*/
+        }else  if(id ==R.id.nav_account){
+            Intent intent = new Intent(MainActivity.this,AccountActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_setting) {
-
+            Intent intent = new Intent(MainActivity.this,SettingActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_help) {
 
         } else if (id == R.id.nav_aboutus) {

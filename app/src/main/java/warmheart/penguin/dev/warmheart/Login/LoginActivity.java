@@ -68,26 +68,33 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
    public String getname,getmail,geturl;
     Bundle bundle = new Bundle();
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        /*try {
+        try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
 //            txtMail.setText(account.getEmail().toString());
-            txtName.setText(account.getDisplayName().toString());
+//            txtName.setText(account.getDisplayName().toString());
             getname = account.getDisplayName().toString();
             getmail = account.getEmail().toString();
             geturl = account.getPhotoUrl().toString();
+            bundle.putString("AccName",getname);
+            bundle.putString("AccMail",getmail);
+            bundle.putString("AccUrl",geturl);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.putExtra("ACC",bundle);
+            startActivity(intent);
 
             // Picasso.with(this).load(account.getPhotoUrl()).into(imgAva);
         } catch (ApiException e) {
+            Toast.makeText(getBaseContext(),"" + e.getMessage(), Toast.LENGTH_LONG).show();
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information
-        }*/
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        }
+       /* GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {
             getname = acct.getDisplayName();
             getmail = acct.getEmail();
             geturl = acct.getPhotoUrl().toString();
-        }
+        }*/
     }
 
     @Override
@@ -100,12 +107,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             // a listener.
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
-            bundle.putString("AccName",getname);
-            bundle.putString("AccMail",getmail);
-            bundle.putString("AccUrl",geturl);
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.putExtra("ACC",bundle);
-            startActivity(intent);
 
         }
     }
