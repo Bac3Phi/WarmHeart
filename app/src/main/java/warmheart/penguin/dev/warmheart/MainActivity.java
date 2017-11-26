@@ -78,8 +78,7 @@ public class MainActivity extends AppCompatActivity
         txtEmail_main.setText(bundle.getString("AccMail"));
         Picasso.with(this).load(bundle.getString("AccUrl")).resize(300,300).centerCrop().into(profile_image);
 
-        Intent intent_mail =    new Intent(MainActivity.this,SendMailActivity.class );
-                intent_mail.putExtra("name",txtName_main.getText());
+
 
         Button btnTest = (Button)findViewById(R.id.button2);
         btnTest.setOnClickListener(new View.OnClickListener() {
@@ -165,7 +164,11 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, DonateActivity.class);
             startActivity(intent);
         }else  if(id ==R.id.nav_account){
+
+
             Intent intent = new Intent(MainActivity.this,AccountActivity.class);
+            intent.putExtra("name1",txtName_main.getText());
+            intent.putExtra("email1",txtEmail_main.getText());
             startActivity(intent);
         } else if (id == R.id.nav_setting) {
             Intent intent = new Intent(MainActivity.this,SettingActivity.class);

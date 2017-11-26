@@ -38,6 +38,7 @@
                 android:text="Họ và Tên: "
                 />
             <TextView
+                android:id="@+id/tv_name_acc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Phạm Nhật Phi"
@@ -54,6 +55,7 @@
                 android:text="Email: "
                 />
             <TextView
+                android:id="@+id/tv_email_acc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="gikizay@gmail.com"

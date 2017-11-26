@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -20,7 +21,7 @@ import warmheart.penguin.dev.warmheart.Login.LoginActivity;
 public class AccountActivity extends AppCompatActivity {
     Button Logout;
     private GoogleSignInClient mGoogleSignInClient;
-
+    TextView tvName,tvEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,13 @@ public class AccountActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         Logout = (Button)findViewById(R.id.btnSignOut_Account);
+        tvName= (TextView) findViewById(R.id.tv_name_acc);
+        tvEmail=(TextView) findViewById(R.id.tv_email_acc);
 
+        String s = getIntent().getStringExtra("name1");
+        String a = getIntent().getStringExtra("email1");
+        tvName.setText(s);
+        tvEmail.setText(a);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
