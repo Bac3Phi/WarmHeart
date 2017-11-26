@@ -30,6 +30,7 @@ import java.time.Instant;
 import de.hdodenhof.circleimageview.CircleImageView;
 import warmheart.penguin.dev.warmheart.MainActivity;
 import warmheart.penguin.dev.warmheart.R;
+import warmheart.penguin.dev.warmheart.SendMailActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String AccName = "name";
@@ -76,9 +77,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             bundle.putString("AccName",getname);
             bundle.putString("AccMail",getmail);
             bundle.putString("AccUrl",geturl);
+
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent1 = new Intent(LoginActivity.this, SendMailActivity.class);
+            intent1.putExtra("Send",bundle);
             intent.putExtra("ACC",bundle);
             startActivity(intent);
+
+
         }
     }
 
@@ -98,9 +104,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             bundle.putString("AccName",getname);
             bundle.putString("AccMail",getmail);
             bundle.putString("AccUrl",geturl);
+
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent1 = new Intent(LoginActivity.this, SendMailActivity.class);
+            intent1.putExtra("Send",bundle);
             intent.putExtra("ACC",bundle);
             startActivity(intent);
+
+
 
             // Picasso.with(this).load(account.getPhotoUrl()).into(imgAva);
         } catch (ApiException e) {

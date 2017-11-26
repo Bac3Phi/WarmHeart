@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity
     MaterialSearchBar searchBar;
     private DrawerLayout drawer;
     private ViewPager mViewPager;
-    TextView txtName_main, txtEmail_main;
+    public TextView txtName_main, txtEmail_main;
     String urlprofile;
     CircleImageView profile_image;
     TabLayout tabLayout;
@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity
         txtName_main.setText(bundle.getString("AccName"));
         txtEmail_main.setText(bundle.getString("AccMail"));
         Picasso.with(this).load(bundle.getString("AccUrl")).resize(300,300).centerCrop().into(profile_image);
+
+        Intent intent_mail =    new Intent(MainActivity.this,SendMailActivity.class );
+                intent_mail.putExtra("name",txtName_main.getText());
 
         Button btnTest = (Button)findViewById(R.id.button2);
         btnTest.setOnClickListener(new View.OnClickListener() {

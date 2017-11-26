@@ -8,9 +8,11 @@
     tools:context=".Fragment.TabActivity">
 
     <ListView
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
         android:divider="@null"
         android:dividerHeight="10dp"
-        android:id="@+id/UserListView"
+        android:id="@+id/ListView_ranking"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:stackFromBottom="false"
