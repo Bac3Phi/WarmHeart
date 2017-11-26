@@ -1,21 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InfoActivity">
 
-    <TextView
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="DM Fi Lons
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.AppCompat.Light">
+    <android.support.v7.widget.Toolbar
 
-        this is what i want to say
+        android:id="@+id/toolbarInfo"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </android.support.design.widget.AppBarLayout>
 
+    <LinearLayout
+        android:layout_marginTop="64dp"
+        android:id="@+id/layoutLogoWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
 
-                Peguin The Joker"
+        <ImageView
+            android:layout_width="186dp"
+            android:layout_height="186dp"
+            android:src="@drawable/logo_team" />
 
-        />
+        <TextView
+            android:id="@+id/txtSlogan"
+            android:textStyle="bold"
+            android:textSize="22dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Penguin the Joker"
+            android:textColor="@color/cardview_dark_background" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="2017"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:gravity="center"/>
 
-</android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+    <TextView
+        android:fontFamily="sans-serif"
+        android:id="@+id/Phi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="330dp"
+        android:text="Phạm Nhật Phi"
+        tools:ignore="NotSibling" />
+    <TextView
+        android:layout_below="@+id/Phi"
+        android:id="@+id/Long"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:layout_centerHorizontal="true"
+        android:text="Quách Hoàng Long"/>
+    <TextView
+        android:id="@+id/Huy"
+        android:layout_below="@+id/Long"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:layout_centerHorizontal="true"
+        android:text="Phạm Nguyễn Gia Huy"/>
+    <TextView
+        android:id="@+id/Quan"
+        android:layout_below="@+id/Huy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:layout_centerHorizontal="true"
+        android:text="Nguyễn Trường Minh Quân"/>
+    <TextView
+        android:layout_below="@+id/Quan"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--*--"/>
+</RelativeLayout>

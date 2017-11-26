@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.AppCompat.Light">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarAcc"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </android.support.design.widget.AppBarLayout>
+    <RelativeLayout
+        android:layout_marginTop="64dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/layout1"
         android:background="@drawable/background_account"
@@ -99,6 +114,8 @@
     </LinearLayout>
 
     <Button
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
         android:id="@+id/btnSignOut_Account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -107,5 +124,5 @@
         android:layout_margin="30dp"
         android:text="Sign Out"
          />
-
+    </RelativeLayout>
 </RelativeLayout>

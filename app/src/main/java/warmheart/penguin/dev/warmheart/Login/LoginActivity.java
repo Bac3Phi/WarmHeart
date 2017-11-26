@@ -7,8 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,14 +38,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public static final String BUNDLE = "bundle";
     private GoogleSignInClient mGoogleSignInClient;
     private SignInButton signInButton;
-
+    private Animation downtoup;
     private int RC_SIGN_IN = 001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        LinearLayout layoutLogo = (LinearLayout) findViewById(R.id.layoutLogoWelcome);
+        downtoup = AnimationUtils.loadAnimation(this,R.anim.down);
+        layoutLogo.setAnimation(downtoup);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
